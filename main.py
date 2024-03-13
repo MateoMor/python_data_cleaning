@@ -1,11 +1,16 @@
 from src.api import api_request
-from src.ui import show_menu, print_data, show_age_distribution_plot, show_municipality_distribution, show_travel_country_distribution
+from src.ui import show_menu, print_data, show_age_distribution_line_plot, show_age_distribution_violin_plot, show_municipality_distribution_bar_plot, show_travel_country_distribution_bar_plot
 from src.data_wrangling import data_wrangling
 
 def main():
 
     df = api_request("RISARALDA", 10000)
+    
+    print("Describe before wrangling:\n", df.describe())
+    
     data_wrangling(df)
+    
+    print("\nDescribe after wrangling:\n", df.describe())
 
     while True:
         show_menu()
@@ -14,11 +19,13 @@ def main():
         if opcion == '1':
             print_data(df)
         elif opcion == '2':
-            show_age_distribution_plot(df)
+            show_age_distribution_line_plot(df)
         elif opcion == '3':
-            show_municipality_distribution(df)
+            show_age_distribution_violin_plot(df)
         elif opcion == '4':
-            show_travel_country_distribution(df)
+            show_municipality_distribution_bar_plot(df)
+        elif opcion == '5':
+            show_travel_country_distribution_bar_plot(df)
         elif opcion == '0':
             print("Saliendo del programa...")
             break
