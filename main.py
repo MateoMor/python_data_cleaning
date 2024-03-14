@@ -1,5 +1,5 @@
 from src.api import api_request
-from src.ui import show_menu, print_data, show_age_distribution_line_plot, show_age_distribution_violin_plot, show_municipality_distribution_bar_plot, show_travel_country_distribution_bar_plot
+from src.ui import show_menu, print_data, show_age_distribution_line_plot, show_age_distribution_violin_plot, show_municipality_distribution_pie_plot, show_contagion_type_distribution_pie_plot
 from src.data_wrangling import data_wrangling
 
 def main():
@@ -23,9 +23,9 @@ def main():
         elif opcion == '3':
             show_age_distribution_violin_plot(df)
         elif opcion == '4':
-            show_municipality_distribution_bar_plot(df)
+            show_municipality_distribution_pie_plot(df)
         elif opcion == '5':
-            show_travel_country_distribution_bar_plot(df)
+            show_contagion_type_distribution_pie_plot(df)
         elif opcion == '0':
             print("Saliendo del programa...")
             break
